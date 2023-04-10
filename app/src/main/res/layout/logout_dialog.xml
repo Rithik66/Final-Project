@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_220sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imageLogout"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_100sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="@dimen/_26sdp"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See you soon 👋"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/primary"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imageLogout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="@dimen/_36sdp"
+                android:id="@+id/cancelButton"
+                android:layout_width="@dimen/_95sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="?android:attr/selectableItemBackground"
+                app:layout_constraintTop_toBottomOf="@id/imageLogout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/acceptLogoutButton"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_6sdp"
+                android:textStyle="bold"
+                android:textColor="@color/primary">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Cancel"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/_12ssp"
+                    android:gravity="center"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="@dimen/_36sdp"
+                android:id="@+id/acceptLogoutButton"
+                android:layout_width="@dimen/_95sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:layout_constraintTop_toBottomOf="@id/imageLogout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cancelButton"
+                app:cardBackgroundColor="@color/primary"
+                app:cardCornerRadius="@dimen/_6sdp"
+                app:cardElevation="@dimen/_6sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Logout"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:gravity="center"/>
+
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
