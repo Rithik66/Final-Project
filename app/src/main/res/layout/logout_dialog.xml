@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/dialogMaterialCardView"
         android:layout_width="@dimen/_300sdp"
         android:layout_height="@dimen/_220sdp"
         app:cardElevation="@dimen/_6sdp"
-        app:cardCornerRadius="@dimen/_6sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardCornerRadius="@dimen/_16sdp"
+        android:layout_gravity="center">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -39,6 +38,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <com.google.android.material.card.MaterialCardView
+                android:clickable="true"
                 android:layout_marginTop="@dimen/_36sdp"
                 android:id="@+id/cancelButton"
                 android:layout_width="@dimen/_95sdp"
@@ -64,6 +64,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:clickable="true"
                 android:layout_marginTop="@dimen/_36sdp"
                 android:id="@+id/acceptLogoutButton"
                 android:layout_width="@dimen/_95sdp"
@@ -89,4 +90,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

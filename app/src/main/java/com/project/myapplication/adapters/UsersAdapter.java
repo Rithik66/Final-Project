@@ -12,16 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.project.myapplication.activities.MainActivity;
 import com.project.myapplication.databinding.ItemContainerUserBinding;
+import com.project.myapplication.listeners.UserListener;
 import com.project.myapplication.models.User;
 
 import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder>{
-
     private List<User> users;
+    private UserListener userListener;
 
-    public UsersAdapter(List<User> users){
-        this.users =  users;
+    public UsersAdapter(List<User> users, UserListener userListener) {
+        this.users = users;
+        this.userListener = userListener;
     }
 
     @NonNull
@@ -55,6 +57,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
             binding.textName.setText(user.name);
             binding.textEmail.setText(user.email);
             binding.imageProfile.setImageBitmap(getUserImage(user.image));
+            binding.getRoot().setOnClickListener(v -> userListener.onUserClicker(user));
         }
     }
 
