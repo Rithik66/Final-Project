@@ -1,19 +1,32 @@
 package com.project.myapplication.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.view.ViewGroup.LayoutParams.*;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.project.myapplication.R;
 import com.project.myapplication.databinding.ActivityMainBinding;
+
 import static com.project.myapplication.utilities.Constants.*;
 import com.project.myapplication.utilities.PreferenceManager;
 import com.project.myapplication.utilities.ToastUtility;
@@ -25,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     ToastUtility toastUtility;
+    Dialog dialog;
     PreferenceManager preferenceManager;
 
     @Override
@@ -33,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         toastUtility = ToastUtility.getInstance(getApplicationContext());
+        dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.logout_dialog);
+        dialog.getWindow().setLayout(MATCH_PARENT,WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
         preferenceManager = new PreferenceManager(getApplicationContext());
         loadDoctorDetails();
         getToken();
@@ -40,7 +60,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListeners(){
-        binding.imageSignOut.setOnClickListener(v -> signOut());
+        binding.imageSignOut.setOnClickListener(v -> {
+            MaterialCardView cancel = dialog.findViewById(R.id.cancelButton);
+            MaterialCardView logout = dialog.findViewById(R.id.acceptLogoutButton);
+            ImageView imageView = dialog.findViewById(R.id.imageLogout);
+            Glide.with(MainActivity.this).load(ContextCompat.getDrawable(MainActivity.this, R.drawable.logout)).into(imageView);
+            logout.setOnClickListener(i -> signOut());
+            cancel.setOnClickListener(i -> dialog.dismiss());
+            dialog.show();
+        });
+        binding.fabNewChat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),UsersActivity.class)));
     }
 
     private void loadDoctorDetails(){
@@ -58,12 +87,16 @@ public class MainActivity extends AppCompatActivity {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         DocumentReference documentReference = database.collection(KEY_COLLECTION_DOCTORS).document(preferenceManager.getString(KEY_USER_ID));
         documentReference.update(KEY_FCM_TOKEN,token)
-                .addOnSuccessListener(unused -> toastUtility.shortToast("Token updated successfully"))
                 .addOnFailureListener(e -> toastUtility.exceptionToast(e.getLocalizedMessage(),"MainActivity::updateToken"));
     }
 
     public void signOut(){
         toastUtility.shortToast("Signing out...");
+        try {
+            Thread.sleep(1000);
+        }catch(Exception e){
+            toastUtility.exceptionToast(e.getLocalizedMessage(),"MainActivity::signOut");
+        }
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         DocumentReference documentReference = database.collection(KEY_COLLECTION_DOCTORS).document(preferenceManager.getString(KEY_USER_ID));
         HashMap<String,Object> updates = new HashMap<>();
@@ -75,5 +108,6 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 })
                 .addOnFailureListener(e -> toastUtility.longToast("Unable to sign in"));
+        dialog.dismiss();
     }
 }
