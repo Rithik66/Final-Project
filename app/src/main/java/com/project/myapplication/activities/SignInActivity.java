@@ -70,7 +70,7 @@ public class SignInActivity extends AppCompatActivity {
                         preferenceManager.putString(KEY_USER_ID,documentSnapshot.getId());
                         preferenceManager.putString(KEY_NAME,documentSnapshot.getString(KEY_NAME));
                         preferenceManager.putString(KEY_IMAGE,documentSnapshot.getString(KEY_IMAGE));
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }else{

@@ -20,26 +20,37 @@ import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.project.myapplication.R;
+import com.project.myapplication.adapters.RecentConversationAdapter;
 import com.project.myapplication.databinding.ActivityMainBinding;
 
 import static com.project.myapplication.utilities.Constants.*;
+
+import com.project.myapplication.listeners.ConversationListener;
+import com.project.myapplication.models.ChatMessage;
+import com.project.myapplication.models.User;
 import com.project.myapplication.utilities.PreferenceManager;
 import com.project.myapplication.utilities.ToastUtility;
 
-import java.util.HashMap;
+import java.util.*;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ConversationListener {
 
     ActivityMainBinding binding;
     ToastUtility toastUtility;
     Dialog dialog;
     PreferenceManager preferenceManager;
+    List<ChatMessage> conversations;
+    RecentConversationAdapter conversationAdapter;
+    FirebaseFirestore database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
         loadDoctorDetails();
         getToken();
         setListeners();
+        init();
+        listenConversations();
+    }
+
+    private void init(){
+        conversations = new ArrayList<>();
+        conversationAdapter = new RecentConversationAdapter(conversations,this);
+        binding.conversationsRecyclerView.setAdapter(conversationAdapter);
+        database = FirebaseFirestore.getInstance();
     }
 
     private void setListeners(){
@@ -71,6 +91,60 @@ public class MainActivity extends AppCompatActivity {
         });
         binding.fabNewChat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),UsersActivity.class)));
     }
+
+    private void listenConversations(){
+        database.collection(KEY_COLLECTION_CONVERSATIONS)
+                .whereEqualTo(KEY_SENDER_ID,preferenceManager.getString(KEY_USER_ID))
+                .addSnapshotListener(eventListener);
+        database.collection(KEY_COLLECTION_CONVERSATIONS)
+                .whereEqualTo(KEY_RECEIVER_ID,preferenceManager.getString(KEY_USER_ID))
+                .addSnapshotListener(eventListener);
+    }
+
+    private final EventListener<QuerySnapshot> eventListener = (value, error)-> {
+        if (error != null) {
+            return;
+        }
+        if (value != null) {
+            for (DocumentChange documentChange : value.getDocumentChanges()) {
+                if (documentChange.getType() == DocumentChange.Type.ADDED) {
+                    String senderId = documentChange.getDocument().getString(KEY_SENDER_ID);
+                    String receiverId = documentChange.getDocument().getString(KEY_RECEIVER_ID);
+                    ChatMessage chatMessage = new ChatMessage();
+                    chatMessage.senderId = senderId;
+                    chatMessage.recieverId = receiverId;
+                    if(preferenceManager.getString(KEY_USER_ID).equals(senderId)){
+                        chatMessage.conversationImage = documentChange.getDocument().getString(KEY_RECEIVER_IMAGE);
+                        chatMessage.conversationName = documentChange.getDocument().getString(KEY_RECEIVER_NAME);
+                        chatMessage.conversationId= documentChange.getDocument().getString(KEY_RECEIVER_ID);
+                    }else {
+                        chatMessage.conversationImage = documentChange.getDocument().getString(KEY_SENDER_IMAGE);
+                        chatMessage.conversationName = documentChange.getDocument().getString(KEY_SENDER_NAME);
+                        chatMessage.conversationId= documentChange.getDocument().getString(KEY_SENDER_ID);
+                    }
+                    chatMessage.message= documentChange.getDocument().getString(KEY_LAST_MESSAGE);
+                    chatMessage.dateObject= documentChange.getDocument().getDate(KEY_TIMESTAMP);
+                    conversations.add(chatMessage);
+                }else if (documentChange.getType() == DocumentChange.Type.MODIFIED){
+                    for(int i=0;i<conversations.size();i++){
+                        String senderId = documentChange.getDocument().getString(KEY_SENDER_ID);
+                        String receiverId = documentChange.getDocument().getString(KEY_RECEIVER_ID);
+                        if(conversations.get(i).senderId.equals(senderId) && conversations.get(i).recieverId.equals(receiverId)){
+                            conversations.get(i).message= documentChange.getDocument().getString(KEY_LAST_MESSAGE);
+                            conversations.get(i).dateObject= documentChange.getDocument().getDate(KEY_TIMESTAMP);
+                            break;
+                        }
+                    }
+                }
+            }
+            Collections.sort(conversations,(obj1,obj2)->obj1.dateObject.compareTo(obj2.dateObject));
+            conversationAdapter.notifyDataSetChanged();
+            binding.conversationsRecyclerView.smoothScrollToPosition(0);
+            binding.conversationsRecyclerView.setVisibility(View.VISIBLE);
+            binding.progressBar.setVisibility(View.GONE);
+
+        }
+    };
 
     private void loadDoctorDetails(){
         binding.textName.setText(preferenceManager.getString(KEY_NAME));
@@ -109,5 +183,12 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> toastUtility.longToast("Unable to sign in"));
         dialog.dismiss();
+    }
+
+    @Override
+    public void onConversationClicked(User user) {
+        Intent intent = new Intent(getApplicationContext(),ChatActivity.class);
+        intent.putExtra(KEY_USER,user);
+        startActivity(intent);
     }
 }
