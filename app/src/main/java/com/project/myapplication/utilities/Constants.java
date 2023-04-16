@@ -2,6 +2,8 @@ package com.project.myapplication.utilities;
 
 public class Constants {
     public static final String KEY_COLLECTION_DOCTORS = "doctors";
+
+    public static final String KEY_COLLECTION_PATIENTS = "patients";
     public static final String KEY_NAME = "name";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PASSWORD = "password";
@@ -22,5 +24,9 @@ public class Constants {
     public static final String KEY_LAST_MESSAGE = "lastMessage";
     public static final String KEY_SENDER_IMAGE = "senderImage";
     public static final String KEY_RECEIVER_IMAGE = "receiverImage";
+    public static final String KEY_DATE_OF_BIRTH= "dateOfBirth";
+    public static final String KEY_BLOOD_GROUP = "bloodGroup";
+    public static final String KEY_CONTACT_NUMBER = "contactNumber";
+    public static final String KEY_AADHAR_NUMBER = "aadharAnumber";
 
 }

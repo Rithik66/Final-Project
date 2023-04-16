@@ -34,7 +34,7 @@ public class SignInActivity extends AppCompatActivity {
         try{
             preferenceManager = new PreferenceManager(getApplicationContext());
             if(preferenceManager.getBoolean(KEY_IS_SIGNED_IN)){
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                 finish();
             }
             toastUtility = ToastUtility.getInstance(this);

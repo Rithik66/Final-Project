@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/primary"
+    tools:context=".activities.VideoChatHome">
+
+    <View
+        android:id="@+id/chatBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/top_background"
+        app:layout_constraintTop_toBottomOf="@id/userName"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/backBtnImage"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:src="@drawable/ic_back"
+        app:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_12sdp"/>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:text="Rithik"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backBtnImage"
+        app:layout_constraintBottom_toBottomOf="@id/backBtnImage"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:clickable="true"
+        android:id="@+id/cardDoctors"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toTopOf="@id/chatBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/_25sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/ic_person"
+                app:tint="@color/primary"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Doctors video chat"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chat with fellow doctors"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/_14ssp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:clickable="true"
+        android:id="@+id/cardPatients"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toBottomOf="@id/cardDoctors"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/_25sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/ic_patient"
+                app:tint="@color/primary"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patients video chat"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chat with all the patients"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/_14ssp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

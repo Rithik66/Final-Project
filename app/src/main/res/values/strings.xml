@@ -10,4 +10,14 @@
     <string name="sign_up">SIGN UP</string>
     <string name="create_new_account">Create New account</string>
     <string name="type_a_message">Type a message</string>
+    <string-array name="blood_group">
+        <item>A+</item>
+        <item>B+</item>
+        <item>O+</item>
+        <item>AB+</item>
+        <item>A-</item>
+        <item>B-</item>
+        <item>O-</item>
+        <item>AB-</item>
+    </string-array>
 </resources>

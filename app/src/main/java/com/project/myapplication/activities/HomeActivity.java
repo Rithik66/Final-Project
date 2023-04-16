@@ -38,5 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     }
     private void setListeners(){
         binding.openChat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),MainActivity.class)));
+        binding.videoChat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),VideoChatHome.class)));
+        binding.addPatient.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),AddPatientActivity.class)));
     }
 }
