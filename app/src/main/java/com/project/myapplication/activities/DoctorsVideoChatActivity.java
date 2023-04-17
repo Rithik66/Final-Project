@@ -16,6 +16,7 @@ import android.view.View;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.project.myapplication.adapters.UserCallAdapter;
 import com.project.myapplication.adapters.UsersAdapter;
 import com.project.myapplication.databinding.ActivityDoctorsVideoChatBinding;
 import com.project.myapplication.listeners.UserListener;
@@ -26,7 +27,7 @@ import com.project.myapplication.utilities.ToastUtility;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorsVideoChatActivity extends AppCompatActivity implements UserListener {
+public class DoctorsVideoChatActivity extends AppCompatActivity{
 
     ActivityDoctorsVideoChatBinding binding;
     PreferenceManager preferenceManager;
@@ -66,7 +67,7 @@ public class DoctorsVideoChatActivity extends AppCompatActivity implements UserL
                             users.add(user);
                         }
                         if(users.size()>0){
-                            UsersAdapter usersAdapter = new UsersAdapter(users,this);
+                            UserCallAdapter usersAdapter = new UserCallAdapter(users,getApplicationContext());
                             binding.usersRecyclerView.setAdapter(usersAdapter);
                             binding.usersRecyclerView.setVisibility(View.VISIBLE);
                         }else{
@@ -92,9 +93,4 @@ public class DoctorsVideoChatActivity extends AppCompatActivity implements UserL
         binding.textErrorMessage.setVisibility(View.VISIBLE);
     }
 
-
-    @Override
-    public void onUserClicker(User user) {
-        ToastUtility.getInstance(getApplicationContext()).shortToast(user.id+" : "+user.name);
-    }
 }

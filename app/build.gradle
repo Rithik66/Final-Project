@@ -56,4 +56,5 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.3.0')
     implementation 'com.github.ZEGOCLOUD:zego_uikit_prebuilt_call_android:+'
     implementation 'com.github.ZEGOCLOUD:zego_uikit_signaling_plugin_android:+'
+    implementation 'io.agora.rtc:full-sdk:4.0.1'
 }

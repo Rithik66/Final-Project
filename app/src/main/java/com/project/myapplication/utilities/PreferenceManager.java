@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import static com.project.myapplication.utilities.Constants.*;
 
+import androidx.annotation.NonNull;
+
 public class PreferenceManager {
+
     private final SharedPreferences sharedPreferences;
 
-    public PreferenceManager(Context context) {
+    public PreferenceManager(@NonNull Context context) {
         sharedPreferences = context.getSharedPreferences(KEY_PREFERENCE_NAME,Context.MODE_PRIVATE);
     }
 
