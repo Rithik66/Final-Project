@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.myapplication.databinding.ItemContainerUserBinding;
+import com.project.myapplication.databinding.ItemContainerPatientBinding;
 import com.project.myapplication.listeners.PatientListener;
 import com.project.myapplication.models.Patient;
 
@@ -27,12 +27,12 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.Patien
     @NonNull
     @Override
     public PatientsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemContainerUserBinding itemContainerUserBinding = ItemContainerUserBinding.inflate(
+        ItemContainerPatientBinding itemContainerPatientBinding = ItemContainerPatientBinding.inflate(
                 LayoutInflater.from(parent.getContext()),
                 parent,
                 false
         );
-        return new PatientsViewHolder(itemContainerUserBinding);
+        return new PatientsViewHolder(itemContainerPatientBinding);
     }
 
     @Override
@@ -46,10 +46,10 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.Patien
     }
 
     class PatientsViewHolder extends RecyclerView.ViewHolder{
-        ItemContainerUserBinding binding;
-        PatientsViewHolder(ItemContainerUserBinding itemContainerUserBinding){
-            super(itemContainerUserBinding.getRoot());
-            binding = itemContainerUserBinding;
+        ItemContainerPatientBinding binding;
+        PatientsViewHolder(ItemContainerPatientBinding itemContainerPatientBinding){
+            super(itemContainerPatientBinding.getRoot());
+            binding = itemContainerPatientBinding;
         }
         void setUserData(Patient patient){
             binding.textName.setText(patient.name);

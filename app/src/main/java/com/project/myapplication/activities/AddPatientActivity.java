@@ -55,6 +55,7 @@ public class AddPatientActivity extends AppCompatActivity {
     }
 
     private void setListeners(){
+        binding.backBtnImage.setOnClickListener(v -> onBackPressed());
         binding.buttonAddPatient.setOnClickListener(v -> {
             if(isValidDetails()){
                 addPatients();
