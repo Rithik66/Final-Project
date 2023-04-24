@@ -43,7 +43,7 @@
         android:layout_marginStart="@dimen/_8sdp"
         android:ellipsize="end"
         android:gravity="center"
-        android:text=""
+        android:text="Doctor1"
         android:maxLines="1"
         android:textColor="@color/white"
         android:textSize="@dimen/_14ssp"
@@ -117,6 +117,7 @@
 
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/viewAppointments"
                     android:clickable="true"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
@@ -147,6 +148,7 @@
 
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/addMedicine"
                     android:clickable="true"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
@@ -160,7 +162,7 @@
                         <ImageView
                             android:layout_width="@dimen/_34sdp"
                             android:layout_height="@dimen/_34sdp"
-                            android:src="@drawable/ic_prescription"
+                            android:src="@drawable/ic_medication"
                             android:layout_marginTop="@dimen/_15sdp"
                             android:layout_marginLeft="@dimen/_24sdp"
                             android:layout_marginBottom="@dimen/_5sdp"/>
@@ -171,7 +173,7 @@
                             android:layout_gravity="bottom|center"
                             android:layout_marginBottom="@dimen/_8sdp"
                             android:textStyle="bold"
-                            android:text="Prescription"/>
+                            android:text="Medicine"/>
 
                     </FrameLayout>
 
@@ -282,104 +284,104 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_1sdp"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="@dimen/_1sdp"-->
+<!--                android:orientation="horizontal">-->
 
-                <com.google.android.material.card.MaterialCardView
-                    android:clickable="true"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    app:cardElevation="@dimen/_6sdp"
-                    android:layout_margin="@dimen/_12sdp">
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:clickable="true"-->
+<!--                    android:layout_width="@dimen/_80sdp"-->
+<!--                    android:layout_height="@dimen/_80sdp"-->
+<!--                    app:cardElevation="@dimen/_6sdp"-->
+<!--                    android:layout_margin="@dimen/_12sdp">-->
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                        <ImageView
-                            android:layout_width="@dimen/_34sdp"
-                            android:layout_height="@dimen/_34sdp"
-                            android:src="@drawable/ic_chat"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:layout_marginLeft="@dimen/_24sdp"
-                            android:layout_marginBottom="@dimen/_5sdp"/>
+<!--                        <ImageView-->
+<!--                            android:layout_width="@dimen/_34sdp"-->
+<!--                            android:layout_height="@dimen/_34sdp"-->
+<!--                            android:src="@drawable/ic_chat"-->
+<!--                            android:layout_marginTop="@dimen/_15sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_24sdp"-->
+<!--                            android:layout_marginBottom="@dimen/_5sdp"/>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|center"
-                            android:layout_marginBottom="@dimen/_8sdp"
-                            android:textStyle="bold"
-                            android:text="Chat"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="bottom|center"-->
+<!--                            android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:text="Chat"/>-->
 
-                    </FrameLayout>
+<!--                    </FrameLayout>-->
 
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:clickable="true"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    app:cardElevation="@dimen/_6sdp"
-                    android:layout_margin="@dimen/_12sdp">
+<!--                </com.google.android.material.card.MaterialCardView>-->
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:clickable="true"-->
+<!--                    android:layout_width="@dimen/_80sdp"-->
+<!--                    android:layout_height="@dimen/_80sdp"-->
+<!--                    app:cardElevation="@dimen/_6sdp"-->
+<!--                    android:layout_margin="@dimen/_12sdp">-->
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                        <ImageView
-                            android:layout_width="@dimen/_34sdp"
-                            android:layout_height="@dimen/_34sdp"
-                            android:src="@drawable/ic_chat"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:layout_marginLeft="@dimen/_24sdp"
-                            android:layout_marginBottom="@dimen/_5sdp"/>
+<!--                        <ImageView-->
+<!--                            android:layout_width="@dimen/_34sdp"-->
+<!--                            android:layout_height="@dimen/_34sdp"-->
+<!--                            android:src="@drawable/ic_chat"-->
+<!--                            android:layout_marginTop="@dimen/_15sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_24sdp"-->
+<!--                            android:layout_marginBottom="@dimen/_5sdp"/>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|center"
-                            android:layout_marginBottom="@dimen/_8sdp"
-                            android:textStyle="bold"
-                            android:text="Chat"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="bottom|center"-->
+<!--                            android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:text="Chat"/>-->
 
-                    </FrameLayout>
+<!--                    </FrameLayout>-->
 
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:clickable="true"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    app:cardElevation="@dimen/_6sdp"
-                    android:layout_margin="@dimen/_12sdp">
+<!--                </com.google.android.material.card.MaterialCardView>-->
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:clickable="true"-->
+<!--                    android:layout_width="@dimen/_80sdp"-->
+<!--                    android:layout_height="@dimen/_80sdp"-->
+<!--                    app:cardElevation="@dimen/_6sdp"-->
+<!--                    android:layout_margin="@dimen/_12sdp">-->
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                        <ImageView
-                            android:layout_width="@dimen/_34sdp"
-                            android:layout_height="@dimen/_34sdp"
-                            android:src="@drawable/ic_chat"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:layout_marginLeft="@dimen/_24sdp"
-                            android:layout_marginBottom="@dimen/_5sdp"/>
+<!--                        <ImageView-->
+<!--                            android:layout_width="@dimen/_34sdp"-->
+<!--                            android:layout_height="@dimen/_34sdp"-->
+<!--                            android:src="@drawable/ic_chat"-->
+<!--                            android:layout_marginTop="@dimen/_15sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_24sdp"-->
+<!--                            android:layout_marginBottom="@dimen/_5sdp"/>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|center"
-                            android:layout_marginBottom="@dimen/_8sdp"
-                            android:textStyle="bold"
-                            android:text="Chat"/>
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="bottom|center"-->
+<!--                            android:layout_marginBottom="@dimen/_8sdp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:text="Chat"/>-->
 
-                    </FrameLayout>
+<!--                    </FrameLayout>-->
 
-                </com.google.android.material.card.MaterialCardView>
+<!--                </com.google.android.material.card.MaterialCardView>-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
         </LinearLayout>
 

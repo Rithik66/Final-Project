@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.IncomingActivity">
+<!--    android:background="@drawable/call_background">-->
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/call_profile"-->
+<!--        android:layout_width="@dimen/_100sdp"-->
+<!--        android:layout_height="@dimen/_100sdp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="@dimen/_50sdp"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:src="@drawable/circle_profile"-->
+<!--        app:tint="@color/white"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/call_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/call_profile"-->
+<!--        android:text="Name"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@color/primary_text"-->
+<!--        android:textSize="@dimen/_22ssp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/simple_callText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/call_name"-->
+<!--        android:layout_marginTop="@dimen/_80sdp"-->
+<!--        android:text="Incoming video call"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="@color/primary_text"-->
+<!--        android:textSize="@dimen/_22ssp"/>-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/end_call"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/error"-->
+<!--        app:layout_constraintStart_toEndOf="@id/attend_call"-->
+<!--        android:layout_marginTop="@dimen/_220sdp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/call_name"-->
+<!--        android:src="@drawable/call_end"-->
+<!--        app:tint="@color/white"/>-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/attend_call"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="284dp"-->
+<!--        android:backgroundTint="#00BB3E"-->
+<!--        android:src="@drawable/attend_call"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/end_call"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/call_name"-->
+<!--        app:tint="@color/white" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,10 +14,12 @@ import androidx.core.content.ContextCompat;
 import android.app.Application;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.widget.ImageView;
@@ -50,6 +52,19 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        String[] permissionNeeded = {
+                "android.permission.CAMERA",
+                "android.permission.RECORD_AUDIO"};
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, "android.permission.CAMERA") != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, "android.permission.RECORD_AUDIO") != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(permissionNeeded, 101);
+            }
+        }
+
+
         toastUtility = ToastUtility.getInstance(getApplicationContext());
         dialog = new Dialog(HomeActivity.this);
         dialog.setContentView(R.layout.logout_dialog);
@@ -99,6 +114,8 @@ public class HomeActivity extends AppCompatActivity {
         binding.videoChat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),VideoChatHome.class)));
         binding.addPatient.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),AddPatientActivity.class)));
         binding.viewAllPatients.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), PatientsActivity.class)));
+        binding.viewAppointments.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),AppointmentActivity.class)));
+        binding.addMedicine.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),ViewMedicineActivity.class)));
     }
 
     public void signOut(){

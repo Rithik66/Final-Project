@@ -102,6 +102,5 @@ public class PatientsActivity extends AppCompatActivity implements PatientListen
         Intent intent = new Intent(getApplicationContext(), ViewPatientDetailsActivity.class);
         intent.putExtra(KEY_USER,patient);
         startActivity(intent);
-        finish();
     }
 }

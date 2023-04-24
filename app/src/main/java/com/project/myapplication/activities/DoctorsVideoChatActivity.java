@@ -20,6 +20,7 @@ import com.project.myapplication.adapters.UserCallAdapter;
 import com.project.myapplication.adapters.UsersAdapter;
 import com.project.myapplication.databinding.ActivityDoctorsVideoChatBinding;
 import com.project.myapplication.listeners.UserListener;
+import com.project.myapplication.listeners.VideoCallListener;
 import com.project.myapplication.models.User;
 import com.project.myapplication.utilities.PreferenceManager;
 import com.project.myapplication.utilities.ToastUtility;
@@ -27,7 +28,7 @@ import com.project.myapplication.utilities.ToastUtility;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorsVideoChatActivity extends AppCompatActivity{
+public class DoctorsVideoChatActivity extends AppCompatActivity implements VideoCallListener {
 
     ActivityDoctorsVideoChatBinding binding;
     PreferenceManager preferenceManager;
@@ -67,7 +68,7 @@ public class DoctorsVideoChatActivity extends AppCompatActivity{
                             users.add(user);
                         }
                         if(users.size()>0){
-                            UserCallAdapter usersAdapter = new UserCallAdapter(users,getApplicationContext());
+                            UserCallAdapter usersAdapter = new UserCallAdapter(users,getApplicationContext(),this);
                             binding.usersRecyclerView.setAdapter(usersAdapter);
                             binding.usersRecyclerView.setVisibility(View.VISIBLE);
                         }else{
@@ -93,4 +94,10 @@ public class DoctorsVideoChatActivity extends AppCompatActivity{
         binding.textErrorMessage.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public void onCallBtnClicked(User user) {
+        Intent intent = new Intent(getApplicationContext(),OutgoingActivity.class);
+        intent.putExtra("user",user);
+        startActivity(intent);
+    }
 }

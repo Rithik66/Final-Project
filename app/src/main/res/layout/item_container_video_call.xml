@@ -55,10 +55,12 @@
         app:layout_constraintEnd_toStartOf="@id/videoCall"
         />
 
-    <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/videoCall"
         android:layout_width="@dimen/_35sdp"
         android:layout_height="@dimen/_35sdp"
+        android:src="@drawable/ic_video_call"
+        app:tint="#43A047"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

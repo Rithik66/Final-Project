@@ -91,6 +91,7 @@
         android:background="@drawable/chat_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
         
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
@@ -99,6 +100,26 @@
             app:tint="@color/white"
             android:padding="@dimen/_8sdp"
             android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginLeft="@dimen/_4sdp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/addFile"
+        android:clickable="true"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@drawable/chat_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutSend">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_add_file"
+            app:tint="@color/white"
+            android:padding="@dimen/_8sdp"
             android:layout_marginLeft="@dimen/_4sdp"/>
     </FrameLayout>
 
@@ -121,7 +142,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/secondary_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/layoutSend"
+        app:layout_constraintEnd_toStartOf="@id/addFile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/layoutSend"
         />

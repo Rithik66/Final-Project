@@ -36,7 +36,6 @@ public class AddPatientActivity extends AppCompatActivity {
     private PreferenceManager preferenceManager;
     private DatePickerDialog datePickerDialog;
 
-    String[] item = {"A+","A-","B+","B-","O+","O-","AB+","AB-"};
     ArrayAdapter<CharSequence> adapterItems;
     ToastUtility toastUtility;
     private String encodedImage;

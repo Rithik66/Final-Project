@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/primary_text"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_30sdp"/>
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toEndOf="@id/name"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="100"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/primary_text"
+        android:gravity="center_vertical"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toEndOf="@id/quantity"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Unit"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/primary_text"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_5sdp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
