@@ -24,7 +24,7 @@
 
             <TextView
                 android:id="@+id/status"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_130sdp"
                 android:layout_height="wrap_content"
                 android:text="Appointment booked"
                 android:layout_marginRight="@dimen/_5sdp"
@@ -38,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:text="Doctor1"
                 android:textColor="@color/primary_text"
-                android:layout_marginLeft="@dimen/_18sdp"
                 />
             <TextView
                 android:id="@+id/date_time"
