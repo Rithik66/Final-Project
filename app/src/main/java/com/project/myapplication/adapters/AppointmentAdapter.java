@@ -34,7 +34,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull AppointmentViewHolder holder, int position) {
-        holder.setUserData(appointments.get(position));
+            holder.setUserData(appointments.get(position));
     }
 
     @Override

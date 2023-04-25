@@ -97,26 +97,26 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     public void onAppointmentClicked(Appointment appointment) {
         if(appointment.status.equals(APPOINTMENT_BOOKED)){
             Toast.makeText(AppointmentActivity.this, "Need to be closed", Toast.LENGTH_SHORT).show();
-
-            dialog = new Dialog(AppointmentActivity.this);
-            dialog.setContentView(R.layout.logout_dialog);
-            dialog.getWindow().setLayout(MATCH_PARENT,WRAP_CONTENT);
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            dialog.setCancelable(false);
-            dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
-
-            MaterialCardView cancel = dialog.findViewById(R.id.cancelButton);
-            MaterialCardView ok = dialog.findViewById(R.id.ok);
-            ImageView imageView = dialog.findViewById(R.id.imageLogout);
-            Glide.with(AppointmentActivity.this).load(ContextCompat.getDrawable(AppointmentActivity.this, R.drawable.logout)).into(imageView);
-            ok.setOnClickListener(i -> {
-                Intent intent = new Intent(getApplicationContext(),PrescribeActivity.class);
-                intent.putExtra(KEY_USER,appointment);
-                startActivity(intent);
-                finish();
-            });
-            cancel.setOnClickListener(i -> dialog.dismiss());
-            dialog.show();
+//
+//            dialog = new Dialog(AppointmentActivity.this);
+//            dialog.setContentView(R.layout.logout_dialog);
+//            dialog.getWindow().setLayout(MATCH_PARENT,WRAP_CONTENT);
+//            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//            dialog.setCancelable(false);
+//            dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+//
+//            MaterialCardView cancel = dialog.findViewById(R.id.cancelButton);
+//            MaterialCardView ok = dialog.findViewById(R.id.ok);
+//            ImageView imageView = dialog.findViewById(R.id.imageLogout);
+//            Glide.with(AppointmentActivity.this).load(ContextCompat.getDrawable(AppointmentActivity.this, R.drawable.logout)).into(imageView);
+//            ok.setOnClickListener(i -> {
+//                Intent intent = new Intent(getApplicationContext(),PrescribeActivity.class);
+//                intent.putExtra(KEY_USER,appointment);
+//                startActivity(intent);
+//                finish();
+//            });
+//            cancel.setOnClickListener(i -> dialog.dismiss());
+//            dialog.show();
         }else{
             Toast.makeText(AppointmentActivity.this, "Already closed", Toast.LENGTH_SHORT).show();
         }

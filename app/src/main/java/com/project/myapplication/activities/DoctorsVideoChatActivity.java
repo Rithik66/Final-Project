@@ -96,8 +96,6 @@ public class DoctorsVideoChatActivity extends AppCompatActivity implements Video
 
     @Override
     public void onCallBtnClicked(User user) {
-        Intent intent = new Intent(getApplicationContext(),OutgoingActivity.class);
-        intent.putExtra("user",user);
-        startActivity(intent);
+
     }
 }

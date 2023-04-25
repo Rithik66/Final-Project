@@ -68,7 +68,7 @@ public class ViewPatientDetailsActivity extends AppCompatActivity {
                 String formattedDecimal1 = decimalFormat1.format(randomDecimal1);
                 binding.spo2.setText(formattedDecimal);
                 binding.temperature.setText(formattedDecimal1+"F");
-                handler.postDelayed(this, 1000);
+                handler.postDelayed(this, 15000);
             }
         };
         handler.post(runnable);
